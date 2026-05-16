@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+  margin: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+#clock {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+<div id="clock"></div>
+
+<script>
+function updateClock() {
+  const now = new Date();
+
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Denver',
+    hour12: false,
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+
+  document.getElementById('clock').innerHTML =
+    formatter.format(now) + ' MT';
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+</script>
+</body>
+</html>
